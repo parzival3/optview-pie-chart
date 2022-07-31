@@ -132,6 +132,7 @@ pub mod parsing {
         set_sliced_element(vec_of_data)
     }
 
+    #[allow(dead_code)]
     const TEST_STRING: &str = "<body> <h3>11 issue types:</h3>
                                 <ul id='entries_summary'>
                                 <li>LoadClobbered: 4661
