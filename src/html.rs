@@ -89,7 +89,7 @@ pub mod parsing {
         let start = html_string_file.find("<li>")? + 4;
         let end = match html_string_file[start..].find("<li>") {
             None => html_string_file.len() - 1,
-            Some(index) => index + start
+            Some(index) => index + start,
         };
         let data_split: Vec<&str> = html_string_file[start..end].split(":").collect();
         if data_split.len() < 2 {
@@ -97,11 +97,14 @@ pub mod parsing {
         } else {
             let y = data_split[1].trim().parse::<i32>().unwrap();
             let rest = &html_string_file[end..];
-            Some((rest.to_string(), Data {
-                name: data_split[0].trim().into(),
-                y,
-                sliced: false,
-            }))
+            Some((
+                rest.to_string(),
+                Data {
+                    name: data_split[0].trim().into(),
+                    y,
+                    sliced: false,
+                },
+            ))
         }
     }
 
